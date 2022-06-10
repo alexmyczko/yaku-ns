@@ -139,10 +139,10 @@ int main(int argc, char **argv)
 		case 'h':
 		default:
 			printf(
-"usage: ens [-p <port>] [-P <port>] [-f <port>] [-C <max>] [-F <max>]\n"
-"           [-T <forward_timeout>] [-c <config_file>]\n"
-"           [-l <logfile>] [-r <chroot jail>] [-u owner]\n"
-"           [-b <addr>] [-xdhV]\n"
+"usage: yaku-ns [-p <port>] [-P <port>] [-f <port>] [-C <max>] [-F <max>]\n"
+"               [-T <forward_timeout>] [-c <config_file>]\n"
+"               [-l <logfile>] [-r <chroot jail>] [-u owner]\n"
+"               [-b <addr>] [-xdhV]\n"
 			);
 			exit(1);
 		}
