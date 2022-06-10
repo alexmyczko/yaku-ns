@@ -1,10 +1,3 @@
-+==================================================+
-|                     WARNING                      |
-|  Yaku-NS is in the beta stage of development     |
-| possibly unstable, insecure, sperimental code.   |
-|               USE IT AT YOUR RISK.               |
-+==================================================+
-
 -----------
 ADVERTISING
 -----------
