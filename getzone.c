@@ -71,8 +71,8 @@ int main(int argc, char **argv)
 
 void usage(void)
 {
-	printf( "getzone (yaku-ns)\n"
-		"usage: getzone -z <zone> -s <server IP> [-p <port>]\n");
+	printf( "yaku-getzone\n"
+		"usage: yaku-getzone -z <zone> -s <server IP> [-p <port>]\n");
 }
 
 int build_query_header(byte **dest, u_int16_t id, unsigned int rd)
