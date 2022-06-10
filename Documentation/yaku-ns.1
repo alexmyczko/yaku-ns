@@ -1,0 +1,86 @@
+.TH YAKU-NS "1" "November 2011" "yaku-ns" "User Commands"
+.SH NAME
+yaku-ns \- small and simple DNS server
+.SH SYNOPSIS
+yaku-ns [\-p <port>] [\-P <port>] [\-f <port>] [\-C <max>] [\-F <max>] [\-T <forward_timeout>] [\-c <config_file>] [\-l <logfile>] [\-r <chroot jail>] [\-u owner] [\-b <addr>] [\-xdhV]
+.SH DESCRIPTION
+This is a simple and small DNS server.
+Major features are:
+ - Support for A, MX, NS, TXT, PTR, SOA in local resource records
+ - Additional RRs handling
+ - Responses cache, with optional TTL expiration
+ - Forwarding to multiple exteral DNS servers, with simultaneous or
+   time-driven query
+ - Optional TCP zone transfer
+ - A in RRs shuffling
+ - Built-in ACL rules
+ - Root privileges squashing
+ - Chroot jail under unix systems
+ - Secure DNS IDs to prevent DNS forget
+ - Logging
+ - Very simple config file
+.SH OPTIONS
+.TP
+\fB\-p\fR <port>
+Use the UDP port <port> for the DNS service.
+.TP
+\fB\-P\fR <port>
+Use the TCP port <port> for the DNS under TCP service.
+The only two requests accepted under TCP are IN/AXFR and IN/SOA.
+.TP
+\fB\-f\fR <port>
+Query the external DNS servers to the port <port>.
+.TP
+\fB\-C\fR <size>
+Use a cache of size <size>, 0 is no-cache.
+.TP
+\fB\-F\fR <max>
+Use a forwarded request queue of size <size>, 0 turn off the forwarding.
+.TP
+\fB\-T\fR <timeout>
+Forwarded requets expire in <timeout> seconds.
+.TP
+\fB\-c\fR <file>
+Use the config file <file>: WARNING you must specify
+the absolute path here, since the server chdir() to "/".
+Also note that this path is relative to the chroot jail.
+Use "-" as filename to provide the configuration from the
+standard input.
+.TP
+\fB\-l\fR <file>
+Use the <file> for yaku-ns logs. Remember to use an
+absolute path, relative to the chroot (if used).
+.TP
+\fB\-r\fR <directory>
+Chroot to <directory>.
+.TP
+\fB\-u\fR <username>
+Run as <username> (default is nobody, not so secure).
+.TP
+\fB\-b\fR <address>
+Bind only the interface with IP address <address>.
+.TP
+\fB\-x\fR
+Enable the TCP services.
+.TP
+\fB\-d\fR
+Demonize.
+.TP
+\fB\-h\fR
+Show some help.
+.TP
+\fB\-V\fR
+Verbosity level: \-V: low level, \-VV medium level, \-VVV
+high level of verbosity. \-VVV is raccomanded for new users.
+.SH SIGNALS
+The DNS server yaku-ns performs different action if some signal is received:
+  SIGHUP    Reload the configuration (use on record updates)
+  SIGUSR1   Force yaku-ns to log some debugging information
+  SIGUSR2   Switch the forwarding ON/OFF
+.SH SEE ALSO
+.BR yaku-getzone (1).
+.SH AUTHOR
+yaku-ns was written by Salvatore Sanfilippo <antirez@gmail.com>.
+.PP
+This manual page was written by G\[:u]rkan Myczko <alex@aiei.ch>,
+for the Debian project (but may be used by others).
