@@ -1,7 +1,3 @@
-*******************
-Note: Yaku-NS is a 10 years old project. It is here for personal "historical" reasons, as this is one of the first non trivial C projects I wrote.
-*******************
-
 +==================================================+
 |                     WARNING                      |
 |  Yaku-NS is in the beta stage of development     |
