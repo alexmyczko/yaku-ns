@@ -15,14 +15,14 @@ INSTALL_PROGRAM= $(INSTALL)
 INSTALL_DATA= $(INSTALL) -m 644
 DESTDIR= /usr/bin/
 
-PROGRAMS= yaku-ns getzone
+PROGRAMS= yaku-ns yaku-getzone
 YAKUNS_OBJECTS= acl.o arr.o axfr_out.o autoptr.o cache.o config.o core.o \
 		dns.o forward.o local.o log.o htkey.o \
 		misc.o unix.o uptime.o aht.o strlcpy.o strlcat.o \
 		signal.o response.o rlimit.o
 GETZONE_OBJECTS= getzone.o dns.o strlcpy.o
 
-all: .depend yaku-ns getzone success
+all: .depend yaku-ns yaku-getzone success
 
 .depend:
 	@echo Making dependences
@@ -34,7 +34,7 @@ all: .depend yaku-ns getzone success
 yaku-ns:	$(YAKUNS_OBJECTS)
 		$(CC) $(LDFLAGS) $^ -o $@
 
-getzone:	$(GETZONE_OBJECTS)
+yaku-getzone:	$(GETZONE_OBJECTS)
 		$(CC) $(LDFLAGS) $^ -o $@
 
 strip:
