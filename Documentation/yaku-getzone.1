@@ -1,0 +1,39 @@
+.TH GETZONE "1" "November 2011" "yaku-getzone" "User Commands"
+.SH NAME
+yaku-getzone \- zone transfer (AXFR) tool for yaku-ns
+.SH SYNOPSIS
+yaku-getzone \fB\-z\fR <zone> \fB\-s\fR <server IP> [\-p <port>]
+.PP
+.TP
+\fB\-z\fR
+The zone to download.
+.TP
+\fB\-s\fR
+The IP address of the master server.
+.TP
+\fB\-p\fR
+Specify a different destination port, the default is port 53.
+.SH DESCRIPTION
+This manual page documents briefly the
+.B yaku-getzone
+zone transfer tool.
+This is a trivial utility that performs an AXFR request over TCP to some
+primary DNS server and produces as output the zone in a format compatible
+with the Yaku-NS configuration file.
+You can use it to create a rudimental secondary DNS (slave).
+.SH EXAMPLES
+.TP
+.SH Initiate zone transfer for the test.org zone from the DNS server 1.2.3.4
+yaku-getzone \-z test.org \-s 1.2.3.4 > slave-db.test.org
+
+Then you need to send a SIGHUP to Yaku-NS to force a local RRs reload.
+Obviously you need to add an include keyword in the yaku-ns.conf
+to include the zone. See the example configuration file for more
+information.
+.SH SEE ALSO
+.BR yaku-ns (1).
+.SH AUTHOR
+yaku-getzone was written by Salvatore Sanfilippo <antirez@gmail.com>.
+.PP
+This manual page was written by G\[:u]rkan Myczko <alex@aiei.ch>,
+for the Debian project (but may be used by others).
