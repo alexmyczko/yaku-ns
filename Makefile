@@ -13,7 +13,7 @@ AR=/usr/bin/ar
 INSTALL= /usr/bin/install
 INSTALL_PROGRAM= $(INSTALL)
 INSTALL_DATA= $(INSTALL) -m 644
-DESTDIR= /usr/local/bin/
+DESTDIR= $(DESTDIR)/usr/bin/
 
 PROGRAMS= yaku-ns getzone
 YAKUNS_OBJECTS= acl.o arr.o axfr_out.o autoptr.o cache.o config.o core.o \
