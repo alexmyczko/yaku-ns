@@ -25,7 +25,7 @@
 #define NEXT_SERVER_TIMEOUT     3
 #define CACHE_MAX               5000		/* 0 means disable cache */
 #define SAFEUSER                "nobody"
-#define CONFIG_FILE             "/usr/local/yaku-ns/yaku-ns.conf"
+#define CONFIG_FILE             "/etc/yaku-ns/yaku-ns.conf"
 #define YK_CORE_SIZE		2000		/* max core dump size */
 #define CNAME_CHAIN_MAX		4		/* max lenght of cname chain
 						   to follow in local lookup */
