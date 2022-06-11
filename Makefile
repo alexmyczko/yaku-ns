@@ -55,7 +55,7 @@ success:
 distclean:
 mostlyclean:
 
-dist: clean sign tar
+dist: clean tar
 
 tar:
 	if [ "x" = "x$(RELEASE)" ]; then \
@@ -73,12 +73,6 @@ tar:
 
 wc:
 	cat *.[ch] | sed -e /^$$/d | wc -l
-
-sign:
-	rm -f SUM.SIGNED*
-	-(md5sum * 2> /dev/null > MD5SUM.SIGNED)
-	pgp -sta MD5SUM.SIGNED
-	rm -f MD5SUM.SIGNED
 
 #check:
 #	md5sum -vc MD5SUM.SIGNED.asc
