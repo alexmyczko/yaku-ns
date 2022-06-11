@@ -1,19 +1,3 @@
------------
-ADVERTISING
------------
-
-  Yaku-ns is GPLed, but you can get a BSD-like license for your
-  own company usage (for example to develop a closed-source fork
-  and put yaku-ns in some router, appliance, ...) for 1000 EUR.
-  The licence can't be sold to others, and applies to the current
-  CVS source code, that is, you can't use code that I put
-  in the CVS _after_ you already got the license.
-  There aren't time limits. After you got the license you can
-  modify the code and sell it in binary form, inside a ROM,
-  where you want, forever.
-
-  For more information please write to antirez@invece.org
-
 --------
 OVERVIEW
 --------
