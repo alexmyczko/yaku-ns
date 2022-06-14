@@ -1,6 +1,4 @@
---------
-OVERVIEW
---------
+# OVERVIEW
 
   Yaku-NS is a DNS server that implements a subset of the
   DNS protocol.
@@ -18,17 +16,15 @@ OVERVIEW
 	* Dial-up systems
 	* Embedded systems
 
-----------------------------------
-HOW TO SETUP YAKU IN YOUR UNIX BOX
-----------------------------------
+# HOW TO SETUP YAKU IN YOUR UNIX BOX
 
   Yaku-NS runs without root privileges in a chroot jail.
   We provided this features for your security, please enable
   this features!
 
-COMMAND LINE OPTIONS
-~~~~~~~~~~~~~~~~~~~~
+# COMMAND LINE OPTIONS
 
+```
   usage: yaku-ns [-p <port>] [-f <port>] [-C <max>] [-F <max>]
                  [-T <forward_timeout>] [-c <config_file>]
                  [-l <logfile>] [-r <chroot jail>] [-u owner]
@@ -71,23 +67,25 @@ COMMAND LINE OPTIONS
 
 -V		Verbosity level: -V: low level, -VV medium level, -VVV
 		high level of verbosity. -VVV is raccomanded for new users.
+```
 
   See how to create a configuration file using the self-commented
-  config file at Documentation/yaku-ns.conf.example
+  config file at `Documentation/yaku-ns.conf.example`
 
   Follow this steps to install Yaku-NS in a unix-like system:
 
-COMPILING YAKU-NS
-~~~~~~~~~~~~~~~~~
+# COMPILING YAKU-NS
 
+```
   $ vi tunable.h (optional)
   $ make
+```
 
-INSTALLING ENS
-~~~~~~~~~~~~~~
+# INSTALLING ENS
 
   Create a system user "yaku" in the "yaku" group.
 
+```
   # mkdir /usr/local/yaku-ns
   # chown yaku:yaku /usr/local/yaku-ns
   # chmod 700 /usr/local/yaku-ns
@@ -101,6 +99,7 @@ INSTALLING ENS
   # chmod 644 /usr/local/yaku-ns/yaku-ns.log
   # cd /usr/local/yaku-ns
   # ls -l
+```
 
   The output of the ls -l command should be like the following:
 
@@ -109,25 +108,22 @@ INSTALLING ENS
   -rw-r--r--    1 root     root        10107 Dec 26 14:49 yaku-ns.conf
   -rw-r--r--    1 yaku     yaku            0 Dec 26 14:53 yaku-ns.log
 
-CONFIGURING YAKU-NS
-~~~~~~~~~~~~~~~~~~~
+# CONFIGURING YAKU-NS
 
   Edit the example self-commented configuration file
-  /usr/local/yaku-ns/yaku-ns.conf and create your configuration.
+  `/usr/local/yaku-ns/yaku-ns.conf` and create your configuration.
 
-RUNNING YAKU-NS
-~~~~~~~~~~~~~~~
+# RUNNING YAKU-NS
 
   To run Yaku-NS inside a chroot jail (raccomanded!)
   with TCP services enabled just use:
 
-  # /usr/local/yaku-ns/yaku-ns -xd -u yaku -r /usr/local/yaku-ns/ -c /yaku-ns.conf
+  `# /usr/local/yaku-ns/yaku-ns -xd -u yaku -r /usr/local/yaku-ns/ -c /yaku-ns.conf`
 
   Note that the configuration file is specified using the absolute
   path, relative to the chroot.
 
-SIGNALS
-~~~~~~~
+# SIGNALS
 
   Yaku-NS performs different action if some signal is received:
 
@@ -135,9 +131,7 @@ SIGNALS
   SIGUSR1:	Force yaku-ns to log some debugging information
   SIGUSR2:	Switch the forwarding ON/OFF
 
--------
-GETZONE
--------
+# YAKU-GETZONE
 
   Getzone is a trivial utility that performs an AXFR request
   over TCP to some primary DNS server and produces as output
@@ -148,15 +142,17 @@ GETZONE
   since I use only external secondary nameservers, so yaku-ns
   is my primary DNS server).
 
-  Usage: getzone -z <zone> -s <server IP address> [ -p <port> ]
+  Usage: `getzone -z <zone> -s <server IP address> [ -p <port> ]`
 
+```
     -z		The zone to download
     -s		The IP address of the master server
     -p		Specify a different destination port, the default is port 53
+```
 
   Example:
 
-  $ getzone -z test.org -s 1.2.3.4 > salve-db.test.org
+  `$ getzone -z test.org -s 1.2.3.4 > salve-db.test.org`
 
   Than you need to send a SIGHUP to Yaku-NS to force a local RRs reload.
   Obviously you need to add an include keyword in the yaku-ns.conf
