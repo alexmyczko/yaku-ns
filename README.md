@@ -3,14 +3,12 @@
   Yaku-NS is a DNS server that implements a subset of the
   DNS protocol.
 
-  For a full featured DNS server check the BIND
-  For a very secure DNS server (not complete, with a silly license) check DJBDNS
   For an alternative (almost complete) DNS server implementation check DENTS
   For a new upcoming GPL DNS implementation check MARADNS
 
   The goal is to provide an easy to configure GPLed alternative for:
 
-	* A DNS server for myself. I'm unable to configure bind
+	* A DNS server for myself
 	* A primary/secondary DNS server
 	* Forward only DNS server
 	* Dial-up systems
@@ -81,7 +79,7 @@
   $ make
 ```
 
-# INSTALLING ENS
+# INSTALLING YAKU-NS
 
   Create a system user "yaku" in the "yaku" group.
 
@@ -103,10 +101,12 @@
 
   The output of the ls -l command should be like the following:
 
+```
   total 168
   -rwxr-xr-x    1 root     root       153306 Dec 26 14:48 yaku-ns
   -rw-r--r--    1 root     root        10107 Dec 26 14:49 yaku-ns.conf
   -rw-r--r--    1 yaku     yaku            0 Dec 26 14:53 yaku-ns.log
+```
 
 # CONFIGURING YAKU-NS
 
